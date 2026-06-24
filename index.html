@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Developers Graveyard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="scene">
+        <header>
+            <h1 id="mainHeading">The Developers Graveyard</h1>
+            <div class="fog1"></div>
+            <nav id="navbar">
+                <ul id="navigation">
+                    <li id="homeNav"><a href="#">Home</a></li>
+                    <li id="reportsNav"><a href="#">Reports</a></li>
+                    <li id="howNav"><a href="#">How To Use</a></li>
+                    <li id="aboutNav"><a href="#">About</a></li>
+                </ul>
+            </nav>
+
+        </header>
+        <!-- ---------------------------------MOON---------------------------------------- -->
+        <img src="./image/moon.png" alt="Moon Image" class="moon">
+
+        <main>
+            <!-- ----------------------------------FOG---------------------------------------- -->
+            <div class="fog-layer">
+                <div class="fog1"></div>
+                <div class="fog2"></div>
+                <div class="fog3"></div>
+                <div class="fog4"></div>
+                <div class="fog5"></div>
+            </div>
+
+
+            <div id="homePageContainer">
+                <!------------------------------------HERO TEXT---------------------------------------->
+                <p id="heroText">
+                    "Analyze Your Survival
+                    <span id="heroSpan">Calculate your survival"</span>
+                </p>
+
+
+                <!-- ----------------------------------HERO BTN---------------------------------------- -->
+
+                <button id="graveyardBtn">ENTER THE GRAVEYARD</button>
+
+                <!-- ----------------------------------SKY---------------------------------------- -->
+                <div class="sky"></div>
+
+            </div>
+
+
+            <!-- ----------------------------------INPUT PAGE----------------------------------- -->
+
+            <div id="inputContainer">
+                <div class="inputPanel">
+                    <div class="terminalHeader">
+
+
+                        <h2>DEVELOPER DIAGNOSTIC TERMINAL v2.6</h2>
+
+                        <p>STATUS: ONLINE</p>
+                        <p>BURNOUT SCANNER: ACTIVE</p>
+                        <p>COFFEE ANALYZER: ACTIVE</p>
+                        <p>PRODUCTION RISK MONITOR: ACTIVE</p>
+
+                        <div class="warningBox">
+                            WARNING: This system is not responsible for emotional damage.
+                        </div>
+
+                    </div>
+
+                    <!--------------------------- SURVIVAL FORM---------------------------------->
+
+                    <form name="survival_report" method="post" id="survivalForm">
+                        <!-- -----------------PHYSICAL CONDITION ----------------------- -->
+                        <div class="sectionTitle">
+                            <h2>PHYSICAL CONDITION</h2>
+                            <p>Evaluating biological viability of developer...</p>
+                        </div>
+
+                        <div class="card">
+                            <label for="sleep">😴 HOURS OF SLEEP</label>
+                            <input type="range" min="0" max="10" value="5" id="sleep">
+                            <span id="sleepVal">5</span>
+                        </div>
+
+                        <div class="card">
+                            <label for="caffeine">☕ CAFFEINE INTAKE</label>
+                            <input type="range" min="0" max="10" value="5" id="caffeine">
+                            <span id="caffeineVal">5</span>
+                        </div>
+
+
+                        <!-- -----------------------WORKLOAD ANALYSIS------------------------- -->
+                        <div class="sectionTitle">
+                            <h2>WORKLOAD ANALYSIS</h2>
+                            <p>Scanning active sources of suffering...</p>
+                        </div>
+
+                        <div class="card">
+                            <label for="bugs">🐛 BUGS ASSIGNED</label>
+                            <input type="range" min="0" max="10" value="5" id="bugs">
+                            <span id="bugsVal">5</span>
+                        </div>
+
+                        <div class="card">
+                            <label for="pr">📋 PULL REQUESTS OPEN</label>
+                            <input type="range" min="0" max="10" value="5" id="pr">
+                            <span id="prVal">5</span>
+                        </div>
+
+                        <div class="card">
+                            <label for="debug">🔍DEBUGGING HOURS</label>
+                            <input type="range" min="0" max="10" value="5" id="debug">
+                            <span id="debugVal">5</span>
+                        </div>
+
+                        <div class="card">
+                            <label for="slack">🔔 SLACK NOTIFICATIONS</label>
+                            <input type="range" min="0" max="10" value="5" id="slack">
+                            <span id="slackVal">5</span>
+                        </div>
+
+                        <!-- -----------------------EMOTIONAL DAMAGE------------------------- -->
+                        <div class="sectionTitle">
+                            <h2>EMOTIONAL DAMAGE ANALYSIS</h2>
+                            <p>Psychological integrity check in progress...</p>
+                        </div>
+
+                        <div class="card">
+                            <label for="restart">🔄 APP RESTARTED</label>
+                            <input type="range" min="0" max="10" value="5" id="restart">
+                            <span id="restartVal">5</span>
+                        </div>
+
+                        <!-- TOGGLES -->
+
+                        <div class="toggle">
+                            <span>🖥️ IT WORKS ON MY MACHINE</span>
+                            <button type="button" class="toggleBtn" id="machineToggle">OFF</button>
+                        </div>
+
+                        <div class="toggle">
+                            <span>💀 PUSH CODE REGRETS</span>
+                            <button type="button" class="toggleBtn" id="regretToggle">OFF</button>
+                        </div>
+
+                        <button type="submit" id="submitDataBtn">ANALYZE DEVELOPER</button>
+                    </form>
+                </div>
+
+            </div>
+            <!-- ---------------------------------------- LOADING CONTAINER ------------------------------------- -->
+            <div id="loadingContainer">
+
+
+            </div>
+
+            <!-- ---------------------------------------- RESULT CONTAINER ------------------------------------- -->
+
+            <div id="resultContainer">
+
+                <!-- ---------------------HEADER------------------------ -->
+                <div class="repostHeader">
+                    <!-- <h3>REPORT</h3> -->
+                    <p id="timestamp"></p>
+                </div>
+
+                <!-- ------------------------MAIN VERDICT -------------------------- -->
+                <div class="mainVerdict">
+                    <h3 id="burnoutLevel"></h3>
+                    <p class="subText">Overall system health assessment</p>
+                </div>
+
+                <!-- -----------------------MAIN STATS--------------------------- -->
+                <div class="simpleStats">
+                    <p class="statScores">Physical Score <span id="physicalScore"></span></p>
+                    <p class="statScores">Workload Score <span id="workloadScore"></span></p>
+                    <p class="statScores">Emotional Score <span id="emotionalScore"></span></p>
+                </div>
+
+                <!-- -------------------------------FINAL INSIGHT AND RECOMMENDATION----------------------------------- -->
+                <div class="finalLine">
+                    <p id="diagnosis"></p>
+                    <p id="suggestion"></p>
+                </div>
+
+
+            </div>
+
+            <div id="historyContainer">
+                <h3 id="reportsPageHeading">Respect the GONE</h3>
+                <div id="reportsList">
+
+                </div>
+            </div>
+            <div id="aboutContainer">
+
+                <div class="aboutBox">
+                    <div class="disclaimer" id="d1">
+                        <h2 class="paraHeader">ABOUT THE SYSTEM</h2>
+
+                        <p>
+                            Welcome to <b>The Developer's Graveyard™</b> — a highly questionable,
+                            definitely-not-medically-approved psychological diagnostic system designed to estimate your
+                            remaining lifespan as a functioning developer.
+                        </p>
+
+                        <p>
+                            This system uses advanced technologies such as:
+                        </p>
+
+                        <ul>
+                            <li> caffeine-level inference modeling</li>
+                            <li> bug-density emotional correlation</li>
+                            <li> existential Git commit analysis</li>
+                            <li> Stack Overflow dependency tracking</li>
+                        </ul>
+
+                        <p>
+                            The algorithm is trained on thousands of imaginary developers who all said: <i><q>it works
+                                    on my
+                                    machine</q></i> right before everything broke in production.
+                        </p>
+                    </div>
+                    <div class="disclaimer" id="d2">
+                        <h3 class="paraHeader">DISCLAIMER</h3>
+
+                        <p>
+                            This application does NOT provide real medical, psychological, or career advice. If your
+                            burnout
+                            level is <b>CRITICAL</b>, please do not consult this website — consult literally anything
+                            else.
+                        </p>
+
+                        <p>
+                            Side effects may include: loss of motivation | uncontrolled laughter at debugging errors |
+                            your
+                            life choices during merge conflicts
+                        </p>
+                    </div>
+                    <div class="disclaimer" id="d3">
+                        <h3 class="paraHeader">BUILDER</h3>
+                        <p>
+                            Built by Lovepreet Sandhu, a full-stack developer who turns coffee into code and bugs into
+                            life
+                            lessons, navigating the chaotic universe of bugs, deadlines, and Stack Overflow wisdom,
+                            specializing in fixing one error while accidentally creating three more, and remaining a
+                            strong
+                            believer in trial, error, and occasional success.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="howToContainer">
+                <div class="howBox">
+
+                    <h2 class="paraHeader">HOW TO USE THE SYSTEM</h2>
+
+                    <p>
+                        Welcome, unfortunate developer. You are about to be judged by a machine that has seen too many
+                        <i><q>it works on my machine</q></i> incidents.
+                    </p>
+
+                    <div class="disclaimer" id="s1">
+                        <h3 class="paraHeader">STEP 1: INITIALIZE YOUR SUFFERING</h3>
+                        <p>
+                            Click <b>ENTER THE GRAVEYARD</b> to begin the diagnostic process.
+                            This will officially register your existence as <q>still barely functioning.</q>
+                        </p>
+                    </div>
+
+                    <div class="disclaimer" id="s2">
+                        <h3 class="paraHeader">STEP 2: ENTER YOUR DEV STATISTICS</h3>
+                        <p>
+                            Adjust sliders based on your real-life developer experience:
+                        </p>
+                        <ul>
+                            <li>Sleep (optional system feature)</li>
+                            <li>Caffeine (primary fuel source)</li>
+                            <li>Bugs (they multiply, don’t worry)</li>
+                            <li>Pull Requests (pending forever)</li>
+                            <li>Debugging hours (your true job title)</li>
+                            <li>Slack notifications (mental damage indicator)</li>
+                        </ul>
+                    </div>
+
+                    <div class="disclaimer" id="s3">
+                        <h3 class="paraHeader">STEP 3: ENABLE EMOTIONAL DAMAGE MODULES</h3>
+                        <p>
+                            Toggle the following options:
+                        </p>
+                        <ul>
+                            <li><q>It works on my machine</q> mode</li>
+                            <li>Push code regrets system</li>
+                        </ul>
+                        <p>
+                            Warning: enabling both may cause existential awareness.
+                        </p>
+                    </div>
+
+                    <div class="disclaimer" id="s4">
+                        <h3 class="paraHeader">STEP 4: RUN DIAGNOSTIC</h3>
+                        <p>
+                            Click <b>ANALYZE DEVELOPER</b> and wait while the system:
+                        </p>
+                        <ul>
+                            <li>Scans your emotional stability</li>
+                            <li>Queries Stack Overflow spiritually</li>
+                            <li>Calculates burnout probability</li>
+                            <li>Judges your life choices silently</li>
+                        </ul>
+                    </div>
+
+                    <div class="disclaimer" id="s5">
+                        <h3 class="paraHeader">STEP 5: REVIEW YOUR RESULTS</h3>
+                        <p>
+                            You will receive a classified report:
+                        </p>
+                        <ul>
+                            <li>SAFE → You are temporarily functional</li>
+                            <li>WARNING → Please touch grass</li>
+                            <li>BURNOUT → Consider logging off</li>
+                            <li>CRITICAL → The server has given up on you</li>
+                        </ul>
+                    </div>
+
+                    <div class="disclaimer" id="s6">
+                        <h3 class="paraHeader">FINAL NOTE</h3>
+                        <p>
+                            This system does NOT fix bugs, careers, or life choices.
+                            It only observes the collapse in real time.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+    <footer>
+        <p id="copytext">&copy; Lovepreet Sandhu, 2026</p>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
